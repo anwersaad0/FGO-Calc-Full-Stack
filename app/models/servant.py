@@ -20,7 +20,8 @@ class Servant(db.Model):
             'name': self.name,
             'card': self.card,
             'target': self.target,
-            'atkStat': self.atk_stat
+            'atkStat': self.atk_stat,
+            'portrait': self.portrait
         }
 
         return data
