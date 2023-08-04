@@ -10,6 +10,7 @@ class Preset(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
     atk = db.Column(db.Integer, nullable=False)
+    np_mult = db.Column(db.Integer, nullable=False)
     flat_atk = db.Column(db.Integer, nullable=False)
     atk_perc = db.Column(db.Integer, nullable=False)
     np_perc = db.Column(db.Integer, nullable=False)
@@ -18,6 +19,8 @@ class Preset(db.Model):
     trait_perc = db.Column(db.Integer, nullable=False)
     card_res = db.Column(db.Integer, nullable=False)
     np_trait = db.Column(db.Integer, nullable=False)
+    affinity = db.Column(db.String(30), nullable=False)
+    mes_mod = db.Column(db.String(30), nullable=False)
 
     user_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('users.id')))
     servant_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('servants.id')))
@@ -29,6 +32,7 @@ class Preset(db.Model):
         data = {
             'id': self.id,
             'atk': self.atk,
+            'npMult': self.np_mult,
             'flatAtk': self.flat_atk,
             'atkPerc': self.atk_perc,
             'npPerc': self.np_perc,
@@ -36,7 +40,9 @@ class Preset(db.Model):
             'cardPerc': self.card_perc,
             'cardRes': self.card_res,
             'traitPerc': self.trait_perc,
-            'npTrait': self.np_trait
+            'npTrait': self.np_trait,
+            'affinity': self.affinity,
+            'mesMod': self.mes_mod
         }
 
         return data

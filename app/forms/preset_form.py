@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired
 
 class NewPreset(FlaskForm):
     atk = IntegerField("Atk Stat:", validators=[DataRequired()])
-
+    np_mult = IntegerField("NP Mult %:", validators=[DataRequired()])
     flat_atk = IntegerField("Flat Atk:", validators=[DataRequired()])
     atk_perc = IntegerField("Atk %:", validators=[DataRequired()])
     np_perc = IntegerField("NP %:", validators=[DataRequired()])
@@ -13,6 +13,8 @@ class NewPreset(FlaskForm):
     card_res = IntegerField("Card Res:", validators=[DataRequired()])
     trait_perc = IntegerField("Trait %", validators=[DataRequired()])
     np_trait = IntegerField("NP Trait:", validators=[DataRequired()])
+    affinity = StringField("Affinity:", validators=[DataRequired()])
+    mes_mod = StringField("Man/Earth/Sky:", validators=[DataRequired()])
 
 
     
