@@ -49,6 +49,8 @@ def create_preset(id):
             servant_id = servant.id
         )
 
+        #preset.servant = servant
+
         db.session.add(preset)
         db.session.commit()
         return preset.to_dict()

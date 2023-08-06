@@ -47,3 +47,6 @@ class Preset(db.Model):
 
         return data
     
+    def to_servant(self):
+        return self.servant
+    
