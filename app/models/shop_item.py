@@ -15,4 +15,6 @@ class ShopItem(db.Model):
     def to_dict(self):
         data = {
             'id': self.id,
+            'name': self.name,
+            'price': self.price,
         }
