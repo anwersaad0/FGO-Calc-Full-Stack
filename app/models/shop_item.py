@@ -18,3 +18,5 @@ class ShopItem(db.Model):
             'name': self.name,
             'price': self.price,
         }
+
+        return data

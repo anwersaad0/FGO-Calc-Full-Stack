@@ -20,3 +20,5 @@ class Media(db.Model):
             'desc': self.desc,
             'url': self.url
         }
+
+        return data

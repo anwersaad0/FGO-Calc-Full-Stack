@@ -1,14 +1,14 @@
 from flask import Blueprint, jsonify
-from app.models import Servant
+from app.models import Media
 
-servant_routes = Blueprint('servants', __name__)
+media_routes = Blueprint('media', __name__)
 
-@servant_routes.route('/')
-def all_servants():
-    servants = Servant.query.all()
-    return {'servants': [servant.to_dict() for servant in servants]}
+@media_routes.route('/')
+def all_media():
+    media_all = Media.query.all()
+    return {'media': [media.to_dict() for media in media_all]}
 
-@servant_routes.route('/<int:id>')
-def get_servant(id):
-    servant = Servant.query.get(id)
-    return servant.to_dict()
+@media_routes.route('/<int:id>')
+def get_media(id):
+    media = Media.query.get(id)
+    return media.to_dict()
