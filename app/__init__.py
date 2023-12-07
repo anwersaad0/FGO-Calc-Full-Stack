@@ -4,11 +4,11 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
-from .models import db, User, Servant, Preset
+from .models import db, User, Media, ShopItem
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
-from .api.servant_routes import servant_routes
-from .api.preset_routes import preset_routes
+from .api.media_routes import media_routes
+from .api.shop_item_routes import shop_item_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -30,8 +30,8 @@ app.cli.add_command(seed_commands)
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
-app.register_blueprint(servant_routes, url_prefix='/api/servants')
-app.register_blueprint(preset_routes, url_prefix='/api/presets')
+app.register_blueprint(media_routes, url_prefix='/api/media')
+app.register_blueprint(shop_item_routes, url_prefix='/api/shop')
 db.init_app(app)
 Migrate(app, db)
 
