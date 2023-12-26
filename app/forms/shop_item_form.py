@@ -13,3 +13,4 @@ def item_exists(form, field):
 class NewItem(FlaskForm):
     name = StringField("Item Name", validators=[DataRequired()])
     price = FloatField("Item Price", validators=[DataRequired()])
+    #insert something for the image here when possible

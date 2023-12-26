@@ -1,6 +1,7 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import ShopItem
+from app.models import ShopItem, db
+from app.forms import NewItem
 
 shop_item_routes = Blueprint('shop', __name__)
 
@@ -25,5 +26,19 @@ def get_shop_item(id):
 @shop_item_routes.route('/new', methods=['POST'])
 @login_required
 def create_shop_item():
-    #need form class here
-    return 'null'
+    form = NewItem()
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        # add more to form later
+        shop_item = ShopItem(
+            name = form.data['name'],
+            price = form.data['price']
+        )
+
+        db.session.add()
+        db.session.commit()
+        return shop_item.to_dict()
+    
+    return {'errors': form.errors}

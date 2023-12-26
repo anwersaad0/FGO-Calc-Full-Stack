@@ -10,6 +10,7 @@ class ShopItem(db.Model):
     name = db.Column(db.String(50), nullable=False)
     price = db.Column(db.Float, nullable=False)
 
+    #image = db.Column(db.String, nullable=False)
     #quantity = db.Column(db.Integer)
 
     def to_dict(self):
