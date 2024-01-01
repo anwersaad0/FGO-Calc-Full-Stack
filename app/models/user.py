@@ -16,6 +16,9 @@ class User(db.Model, UserMixin):
 
     is_admin = db.Column(db.Boolean, default=False)
 
+    posts = db.relationship('ForumPost', back_populates='user', cascade="all, delete-orphan")
+    replies = db.relationship('Reply', back_populates='user', cascade="all, delete-orphan")
+
     @property
     def password(self):
         return self.hashed_password
