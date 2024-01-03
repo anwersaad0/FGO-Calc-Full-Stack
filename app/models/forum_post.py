@@ -2,6 +2,8 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 from sqlalchemy.schema import ForeignKey
 
+from .post_like import post_likes
+
 class ForumPost(db.Model):
     __tablename__ = "forum_posts"
 
@@ -11,12 +13,13 @@ class ForumPost(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     text = db.Column(db.String(), nullable=False)
-    likes = db.Column(db.Integer, nullable=False)
 
     user_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('users.id')))
 
     user = db.relationship('User', back_populates='posts')
     replies = db.relationship('Reply', back_populates='post', cascade="all, delete-orphan")
+
+    likes = db.relationship('User', secondary=post_likes, back_populates='likes_post')
 
     def to_dict(self):
         data = {

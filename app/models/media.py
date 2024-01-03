@@ -1,5 +1,7 @@
 from .db import db, environment, SCHEMA
 
+from .media_like import media_likes
+
 class Media(db.Model):
     __tablename__ = "media"
 
@@ -11,6 +13,8 @@ class Media(db.Model):
     type = db.Column(db.String(10), nullable=False)
     desc = db.Column(db.String, nullable=False)
     url = db.Column(db.String)
+
+    likes = db.relationship('User', secondary=media_likes, back_populates='likes_media')
 
     def to_dict(self):
         data = {
