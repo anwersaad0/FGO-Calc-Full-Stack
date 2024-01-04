@@ -15,7 +15,7 @@ class Reply(db.Model):
     text = db.Column(db.String(), nullable=False)
 
     user_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('users.id')))
-    post_id = db.Column(db.integer, ForeignKey(add_prefix_for_prod('forum_posts')))
+    post_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('forum_posts')))
 
     user = db.relationship('User', back_populates='replies')
     post = db.relationship('ForumPost', back_populates='replies')
