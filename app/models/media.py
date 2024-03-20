@@ -1,4 +1,6 @@
-from .db import db, environment, SCHEMA
+from .db import db, environment, SCHEMA, add_prefix_for_prod
+
+from sqlalchemy.schema import ForeignKey
 
 from .media_like import media_likes
 
@@ -14,6 +16,9 @@ class Media(db.Model):
     desc = db.Column(db.String, nullable=False)
     url = db.Column(db.String)
 
+    creator_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('users.id')))
+
+    creator = db.relationship('User', back_populates='content')
     likes = db.relationship('User', secondary=media_likes, back_populates='likes_media')
 
     def to_dict(self):

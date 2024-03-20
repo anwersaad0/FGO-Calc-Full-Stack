@@ -17,10 +17,13 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    is_admin = db.Column(db.Boolean, default=False)
+    # is_admin = db.Column(db.Boolean, default=False)
+    # is_creator = db.Column(db.Boolean, default=False)
+    clearance = db.Column(db.String(10), nullable=False, default='User')
 
     posts = db.relationship('ForumPost', back_populates='user', cascade="all, delete-orphan")
     replies = db.relationship('Reply', back_populates='user', cascade="all, delete-orphan")
+    content = db.relationship('Media', back_populates='creator', cascade="all, delete-orphan")
 
     likes_media = db.relationship('Media', secondary=media_likes, back_populates='likes')
     likes_post = db.relationship('ForumPost', secondary=post_likes, back_populates='likes')
