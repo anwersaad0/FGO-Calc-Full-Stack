@@ -8,9 +8,19 @@ function HomePage() {
 
     return (
         <main className="site-homepage">
-            <div className="site-title">
+
+            <div className="container-homepage">
+
+                <div className="container-caption">
+                    We make comics, cartoons, and more cool stuff! Below are the latest things we have to show!
+                </div>
+
+                <div className="container-slides">
+
+                </div>
 
             </div>
+
         </main>
     )
 }
