@@ -9,11 +9,11 @@ function Navigation({ isLoaded }){
 
 	return (
 		<ul>
-			<li>
+			<li className='site-title'>
 				<NavLink exact to="/">Home</NavLink>
 			</li>
 			{isLoaded && (
-				<li>
+				<li className='nav-right-ui'>
 					<ProfileButton user={sessionUser} />
 				</li>
 			)}
