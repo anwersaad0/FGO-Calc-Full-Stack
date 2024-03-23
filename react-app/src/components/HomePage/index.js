@@ -17,6 +17,27 @@ function HomePage() {
 
                 <div className="container-slides">
 
+                    <div className="homeSlides fade">
+                        <div>
+
+                        </div>
+                    </div>
+
+                    <div className="homeSlides fade">
+                        <div>
+                            
+                        </div>
+                    </div>
+
+                    <div className="homeSlides fade">
+                        <div>
+                            
+                        </div>
+                    </div>
+
+                    <a></a>
+                    <a></a>
+
                 </div>
 
             </div>
