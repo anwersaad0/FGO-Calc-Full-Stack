@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useRef } from "react";
 
 import './HomePage.css';
 import { applyMiddleware } from "redux";
@@ -9,24 +10,29 @@ import { applyMiddleware } from "redux";
 function HomePage() {
     const dispatch = useDispatch();
     const history = useHistory();
+    const timeRef = useRef(null);
 
-    const [style, setStyle] = useState("block");
+    const [slide, setSlide] = useState(0);
 
-    let slideIndex = 0;
-    // changeSlide();
+    function resetTimeout() {
+        if (timeRef.current) {
+            clearTimeout(timeRef.current);
+        }
+    }
 
-    // function changeSlide() {
-    //     let slides = document.getElementsByClassName("homeSlides");
+    const slides = ["#0088FE", "#00C49F", "#FFBB28"];
 
-    //     for (let slide of slides) {
-    //         slide.setStyle("none");
-    //     }
+    const slideDelay = 5000;
 
-    //     slideIndex++;
-    //     if (slideIndex > slides.length) slideIndex = 1;
-    //     slides[slideIndex-1].setStyle();
-    //     setTimeout(changeSlide(), 5000);
-    // }
+    useEffect(() => {
+        resetTimeout();
+        timeRef.current = setTimeout(
+            () => {
+                setSlide((prevSlide) => prevSlide === slides.length - 1 ? 0 : prevSlide + 1)
+            },
+            slideDelay
+        )
+    }, [slide])
 
     return (
         <main className="site-homepage">
@@ -39,48 +45,23 @@ function HomePage() {
 
                 <div className="container-slides">
 
-                    <div className="homeSlides fade">
-                        <div className="slide-numText-1">1 / 5</div>
-
-                        <div className="square1"></div>
-
-                        <img alt="placeholder1"></img>
+                    <div className="slideshow">
+                        <div className="slider" style={{ transform: `translate3d(${-slide * 100}%, 0, 0)` }}>
+                            {slides.map((backgroundColor, index) => (
+                                <div className="slide" key={index} style={{backgroundColor}}></div>
+                            ))}
+                        </div>
                     </div>
 
-                    <div className="homeSlides fade">
-                        <div className="slide-numText-3">2 / 5</div>
-
-                        <div className="square2"></div>
-
-                        <img alt="placeholder2"></img>
-                    </div>
-
-                    <div className="homeSlides fade">
-                        <div className="slide-numText-3">3 / 5</div>
-
-                        <div className="square3"></div>
-
-                        <img alt="placeholder3"></img>
-                    </div>
-
-                    <div className="homeSlides fade">
-                        <div className="slide-numText-3">4 / 5</div>
-
-                        <div className="square4"></div>
-
-                        <img alt="placeholder3"></img>
-                    </div>
-
-                    <div className="homeSlides fade">
-                        <div className="slide-numText-3">5 / 5</div>
-
-                        <div className="square5"></div>
-
-                        <img alt="placeholder3"></img>
-                    </div>
-
-                    <a className="slide-prev"></a>
-                    <a className="slide-next"></a>
+                    {/* <div className="slideshow-marks">
+                        {slides.map((_, idx) => (
+                            <div key={idx} className={`mark${slide === idx ? "active" : ""}`} 
+                            onClick={() => {
+                                setSlide(idx);
+                            }}
+                            />
+                        ))}
+                    </div> */}
 
                 </div>
 
