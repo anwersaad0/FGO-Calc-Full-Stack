@@ -53,15 +53,15 @@ function HomePage() {
                         </div>
                     </div>
 
-                    {/* <div className="slideshow-marks">
+                    <div className="slideshow-marks">
                         {slides.map((_, idx) => (
-                            <div key={idx} className={`mark${slide === idx ? "active" : ""}`} 
+                            <div key={idx} className={`mark ${slide === idx ? "active" : ""}`} 
                             onClick={() => {
                                 setSlide(idx);
                             }}
                             />
                         ))}
-                    </div> */}
+                    </div>
 
                 </div>
 
