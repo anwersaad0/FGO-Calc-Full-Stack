@@ -5,3 +5,15 @@
 .hidden {
   display: none;
 }
+
+.container-navigation {
+  list-style-type: none;
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 24px 12px;
+  border-bottom: 2px solid orange;
+
+  margin: 0px;
+}

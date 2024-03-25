@@ -8,10 +8,17 @@ function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
 
 	return (
-		<ul>
+		<ul className='container-navigation'>
 			<li className='site-title'>
-				<NavLink exact to="/">Home</NavLink>
+				<NavLink exact to="/">
+					image pending
+				</NavLink>
 			</li>
+
+			<li>
+				<NavLink className="about-link" exact to="/about">About</NavLink>
+			</li>
+
 			{isLoaded && (
 				<li className='nav-right-ui'>
 					<ProfileButton user={sessionUser} />
