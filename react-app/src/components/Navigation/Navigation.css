@@ -9,10 +9,29 @@
 .container-navigation {
   list-style-type: none;
 
-  justify-content: space-between;
-
-  padding: 24px 12px;
-  border-bottom: 32px solid #35c4ff;
-
   margin: 0px;
+  padding: 0px;
+}
+
+.site-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #35c4ff;
+
+  margin: 12px 0px;
+  padding: 12px 72px;
+}
+
+.nav-bar-link {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 26px;
+  color: white;
+
+  padding: 6px;
+}
+
+.nav-bar-link:hover {
+  background-color: #0054a6;
+  transition: 300ms;
 }

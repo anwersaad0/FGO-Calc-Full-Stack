@@ -15,15 +15,33 @@ function Navigation({ isLoaded }){
 				</NavLink>
 			</li>
 
-			<li>
-				<NavLink className="about-link" exact to="/about">About</NavLink>
-			</li>
-
-			{isLoaded && (
-				<li className='nav-right-ui'>
-					<ProfileButton user={sessionUser} />
+			<div className='site-nav-bar'>
+				<li>
+					<NavLink className="nav-bar-link" exact to="/about">About</NavLink>
 				</li>
-			)}
+				
+				<li>
+					<NavLink className="nav-bar-link" exact to="/projects">Projects</NavLink>
+				</li>
+
+				<li>
+					<NavLink className="nav-bar-link" exact to="/merch">Merch</NavLink>
+				</li>
+
+				<li>
+					<NavLink className="nav-bar-link" exact to="/contact">Contact</NavLink>
+				</li>
+
+				<li>
+					<NavLink className="nav-bar-link" exact to="/forum">Forum</NavLink>
+				</li>
+
+				{isLoaded && (
+					<li className='nav-right-ui'>
+						<ProfileButton user={sessionUser} />
+					</li>
+				)}
+			</div>
 		</ul>
 	);
 }
