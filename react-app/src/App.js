@@ -35,6 +35,10 @@ function App() {
           </Route>
         </Switch>
       )}
+
+      <div className="global-footer">
+        <a className="do-not-sell">Do Not Sell My Personal Information</a>
+      </div>
     </>
   );
 }

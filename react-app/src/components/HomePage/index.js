@@ -39,9 +39,9 @@ function HomePage() {
 
             <div className="container-homepage">
 
-                {/* <div className="container-caption">
+                <div className="container-caption">
                     We make comics, cartoons, and more cool stuff! Below are the latest things we have to show!
-                </div> */}
+                </div>
 
                 <div className="container-slides">
 
@@ -62,6 +62,10 @@ function HomePage() {
                             />
                         ))}
                     </div>
+
+                </div>
+
+                <div>
 
                 </div>
 

@@ -8,12 +8,11 @@
 
 .container-navigation {
   list-style-type: none;
-  display: flex;
 
   justify-content: space-between;
 
   padding: 24px 12px;
-  border-bottom: 2px solid orange;
+  border-bottom: 32px solid #35c4ff;
 
   margin: 0px;
 }

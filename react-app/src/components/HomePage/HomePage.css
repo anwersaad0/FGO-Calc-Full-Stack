@@ -3,16 +3,8 @@
     margin: auto;
 }
 
-.homeSlides {
-    display: none;
-}
-
-.slide-prev, .slide-next {
-    cursor: pointer;
-}
-
 .slideshow {
-    margin: 12px auto;
+    margin: 0px auto;
     overflow: hidden;
     max-width: 500px;
 }
@@ -39,11 +31,9 @@
 
 .mark {
     display: inline-block;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
+    height: 12px;
+    width: 12px;
     cursor: pointer;
     margin: 15px 7px 0px;
     background-color: #c4c4c4;
 }
-
