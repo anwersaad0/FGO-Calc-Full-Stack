@@ -1,5 +1,10 @@
 .profile-dropdown {
   position: absolute;
+  background-color: #35c4ff;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  right: 12px;
+  margin-top: 12px;
 }
 
 .hidden {
@@ -11,6 +16,11 @@
 
   margin: 0px;
   padding: 0px;
+}
+
+.site-title {
+  text-align: center;
+  margin: 24px 0px;
 }
 
 .site-nav-bar {
@@ -31,7 +41,16 @@
   padding: 6px;
 }
 
-.nav-bar-link:hover {
+.profile-button {
+  font-size: 26px;
+  width: 60px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  margin: -4px;
+}
+
+.nav-bar-link:hover, .profile-button:hover {
   background-color: #0054a6;
   transition: 300ms;
 }
