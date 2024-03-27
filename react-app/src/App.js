@@ -37,6 +37,7 @@ function App() {
       )}
 
       <div className="global-footer">
+        <div className="copyright">© Brainfreezerrr Studios, 2022</div>
         <a className="do-not-sell">Do Not Sell My Personal Information</a>
       </div>
     </>

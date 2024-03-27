@@ -20,7 +20,7 @@ function HomePage() {
         }
     }
 
-    const slides = ["#0088FE", "#00C49F", "#FFBB28"];
+    const slides = ["#0088FE", "#0054a6", "#00C49F", "#FFBB28", "#ff9727"];
 
     const slideDelay = 5000;
 

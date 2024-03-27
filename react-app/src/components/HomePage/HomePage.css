@@ -1,3 +1,9 @@
+.container-caption {
+    text-align: center;
+    margin: 24px 0px;
+    font-size: 24px;
+}
+
 .container-slides {
     max-width: 1000px;
     margin: auto;
