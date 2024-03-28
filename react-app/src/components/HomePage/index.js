@@ -5,7 +5,6 @@ import { useState } from "react";
 import { useRef } from "react";
 
 import './HomePage.css';
-import { applyMiddleware } from "redux";
 
 function HomePage() {
     const dispatch = useDispatch();
