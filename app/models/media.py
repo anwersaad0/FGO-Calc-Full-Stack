@@ -13,6 +13,7 @@ class Media(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     type = db.Column(db.String(10), nullable=False)
+    ip = db.Column(db.String(50), nullable=False)
     desc = db.Column(db.String, nullable=False)
     url = db.Column(db.String)
 
@@ -26,6 +27,7 @@ class Media(db.Model):
             'id': self.id,
             'name': self.name,
             'type': self.type,
+            'ip': self.ip,
             'desc': self.desc,
             'url': self.url
         }

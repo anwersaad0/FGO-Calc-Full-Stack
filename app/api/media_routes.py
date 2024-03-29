@@ -12,3 +12,8 @@ def all_media():
 def get_media(id):
     media = Media.query.get(id)
     return media.to_dict()
+
+@media_routes.route('/<ip_name>')
+def get_media_by_ip(ip_name):
+    ip_media = Media.query.filter(Media.ip == ip_name)
+    return {'ip_media': [media.to_dict() for media in ip_media]}
