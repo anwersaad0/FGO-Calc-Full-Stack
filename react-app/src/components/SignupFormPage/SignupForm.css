@@ -1,0 +1,26 @@
+.signup-page-title {
+    text-align: center;
+}
+
+.signup-page-form {
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+}
+
+.signup-page-submit {
+    width: 84px;
+    padding: 6px;
+    margin: auto;
+    margin-top: 16px;
+
+    border: none;
+    background-color: #ff9727;
+    color: white;
+
+    font-family: 'League Spartan', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+
+
+}

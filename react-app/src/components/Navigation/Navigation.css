@@ -1,10 +1,13 @@
 .profile-dropdown {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   background-color: #35c4ff;
   border-top: 2px solid white;
   border-bottom: 2px solid white;
-  right: 12px;
+  right: 54px;
   margin-top: 12px;
+  padding: 2px 8px;
 }
 
 .hidden {
@@ -53,4 +56,20 @@
 .nav-bar-link:hover, .profile-button:hover {
   background-color: #0054a6;
   transition: 300ms;
+}
+
+.login-button, .signup-button {
+  background-color: transparent;
+  color: white;
+  border: none;
+
+  font-size: 20px;
+  /* font-weight: bold; */
+  font-family: 'League Spartan', Arial, Helvetica, sans-serif;
+
+  padding:4px;
+}
+
+.login-button:hover, .signup-button:hover {
+  text-decoration: underline;
 }

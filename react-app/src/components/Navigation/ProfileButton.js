@@ -4,6 +4,7 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -54,16 +55,22 @@ function ProfileButton({ user }) {
         ) : (
           <>
             <OpenModalButton
+              buttonClass="login-button"
               buttonText="Log In"
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
             />
 
-            <OpenModalButton
+            {/* <OpenModalButton
+              buttonClass="signup-button"
               buttonText="Sign Up"
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
-            />
+            /> */}
+
+            <div>
+              <NavLink exact to="/signup">Sign Up</NavLink>
+            </div>
           </>
         )}
       </ul>

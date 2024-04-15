@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 
 import HomePage from "./components/HomePage";
 import ProjectsPage from "./components/ProjectsPage";
+import AboutPage from "./components/AboutPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,9 @@ function App() {
 
           <Route exact path="/projects">
             <ProjectsPage />
+          </Route>
+          <Route exact path="/about">
+            <AboutPage />
           </Route>
           <Route exact path="/">
             <HomePage />

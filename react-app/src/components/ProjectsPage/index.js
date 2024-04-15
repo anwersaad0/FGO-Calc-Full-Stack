@@ -13,10 +13,18 @@ function ProjectsPage() {
 
             <div className="container-projects">
 
+                <div>
+                    Our Projects
+                </div>
+
                 <div className="project-options">
 
                     <div>
                         <NavLink exact to="/media">Monster Hospital</NavLink>
+                    </div>
+
+                    <div>
+                        <NavLink exact to="/media">Flynville University</NavLink>
                     </div>
 
                 </div>

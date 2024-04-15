@@ -29,48 +29,74 @@ function SignupFormPage() {
 
   return (
     <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
+      <h1 className="signup-page-title">Sign Up</h1>
+      <form className="signup-page-form" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
-        <label>
-          Email
+
+        <div>
+          <div>
+            <label>
+              Email:
+            </label>
+          </div>
+
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Username
+        </div>
+
+        <div>
+          <div>
+            <label>
+              Username:
+            </label>
+          </div>
+
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Password
+        </div>
+
+        <div>
+          <div>
+            <label>
+              Password:
+            </label>
+          </div>
+
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Confirm Password
+        </div>
+
+        <div>
+          <div>
+            <label>
+              Confirm Password:
+            </label>
+          </div>
+          
           <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Sign Up</button>
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+        </div>
+        
+
+        <button className="signup-page-submit" type="submit">Sign Up</button>
       </form>
     </>
   );
