@@ -28,3 +28,20 @@
 
 
 }
+
+.signup-label-email {
+    margin-left: -134px;
+}
+
+.signup-label-username {
+    margin-left: -106px;
+}
+
+.signup-label-password {
+    margin-left: -108px;
+}
+
+.signup-label-confirmpassword {
+    margin-left: -52px;
+}
+
