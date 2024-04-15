@@ -9,6 +9,10 @@
     text-align: center;
 }
 
+.signup-page-input-container {
+    margin-top: 12px;
+}
+
 .signup-page-submit {
     width: 84px;
     padding: 6px;

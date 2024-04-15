@@ -68,8 +68,24 @@
   font-family: 'League Spartan', Arial, Helvetica, sans-serif;
 
   padding:4px;
+
+  margin-bottom: 6px;
 }
 
-.login-button:hover, .signup-button:hover {
+.signup-link {
+  background-color: transparent;
+  color: white;
+  border: none;
+
+  text-decoration: none;
+
+  font-size: 20px;
+  font-family: 'League Spartan', Arial, Helvetica, sans-serif;
+
+  padding:4px;
+  margin-bottom: 4px;
+}
+
+.login-button:hover, .signup-button:hover, .signup-link:hover {
   text-decoration: underline;
 }

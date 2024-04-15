@@ -69,7 +69,7 @@ function ProfileButton({ user }) {
             /> */}
 
             <div>
-              <NavLink exact to="/signup">Sign Up</NavLink>
+              <NavLink className="signup-link" exact to="/signup">Sign Up</NavLink>
             </div>
           </>
         )}
