@@ -30,6 +30,7 @@ function SignupFormPage() {
   return (
     <>
       <h1 className="signup-page-title">Sign Up</h1>
+      <h3 className="signup-page-title">Looking to join in on our forums? Feel free to register and jump in.</h3>
       <form className="signup-page-form" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
