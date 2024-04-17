@@ -10,20 +10,34 @@ function ContactPage() {
 
             <div>
 
-                <h1>Contact Us Here!</h1>
+                <h1>Get In Touch!</h1>
 
                 <div>
+                    <h2>Already have an account? Contact us directly here!</h2>
+                </div>
+
+                <div>
+                    <h2>Business Inquiries</h2>
                     <form className="contact-form">
                         <div>
-                            
+                            <input
+                            type="text" 
+                            placeholder="First Name"
+                            />
                         </div>
 
                         <div>
-
+                            <input 
+                            type="text"
+                            placeholder="Last Name"
+                            />
                         </div>
 
                         <div>
-
+                            <input 
+                            type="text"
+                            placeholder="Email"
+                            />
                         </div>
 
                         <button>Send</button>
