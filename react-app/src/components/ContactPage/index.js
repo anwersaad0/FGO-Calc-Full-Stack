@@ -14,6 +14,9 @@ function ContactPage() {
 
                 <div>
                     <h2>Already have an account? Contact us directly here!</h2>
+                    <div>
+                        Placeholder for admin messaging here
+                    </div>
                 </div>
 
                 <div>
