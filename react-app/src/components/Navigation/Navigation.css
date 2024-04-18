@@ -8,6 +8,8 @@
   right: 54px;
   margin-top: 12px;
   padding: 2px 8px;
+
+  list-style-type: none;
 }
 
 .hidden {
@@ -58,7 +60,7 @@
   transition: 300ms;
 }
 
-.login-button, .signup-button {
+.login-button, .signup-button, .logout-button {
   background-color: transparent;
   color: white;
   border: none;
@@ -86,6 +88,6 @@
   margin-bottom: 4px;
 }
 
-.login-button:hover, .signup-button:hover, .signup-link:hover {
+.login-button:hover, .signup-button:hover, .logout-button:hover, .signup-link:hover {
   text-decoration: underline;
 }

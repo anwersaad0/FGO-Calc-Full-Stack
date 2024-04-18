@@ -15,16 +15,17 @@ function ProjectsPage() {
 
                 <div>
                     Our Projects
+                    <h3>A list of of what we've been working on?</h3>
                 </div>
 
                 <div className="project-options">
 
                     <div>
-                        <NavLink exact to="/media">Monster Hospital</NavLink>
+                        <NavLink exact to="/media/monhos">Monster Hospital</NavLink>
                     </div>
 
                     <div>
-                        <NavLink exact to="/media">Flynville University</NavLink>
+                        <NavLink exact to="/media/flyuni">Flynville University</NavLink>
                     </div>
 
                 </div>
