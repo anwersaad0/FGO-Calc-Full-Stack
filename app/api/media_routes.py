@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_required
 from app.models import User, Media, db
-from app.forms import NewMedia
+from app.forms import NewMedia, EditMedia
 
 from ..api.aws_media_helpers import get_unique_media_filename, upload_file_to_s3
 from sqlalchemy import select
@@ -64,4 +64,16 @@ def edit_media(id):
     if not media:
         return {"error": "Media not found!"}
     
+    form = EditMedia()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        media.name = form.data['name']
+        media.ip = form.data['ip']
+        media.desc = form.data['desc']
+
+        db.session.commit()
+        return media.to_dict()
     
+    return {"errors": form.errors}
+
