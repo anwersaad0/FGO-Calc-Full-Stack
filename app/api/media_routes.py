@@ -53,7 +53,7 @@ def add_item():
     
     return {"errors": form.errors}
 
-@media_routes.route('/media/edit/<int:id>', methods=['PUT'])
+@media_routes.route('/edit/<int:id>', methods=['PUT'])
 @login_required
 def edit_media(id):
     if current_user.clearance is not 'Admin':
@@ -77,3 +77,17 @@ def edit_media(id):
     
     return {"errors": form.errors}
 
+#reminder to rework to further accommodate for user clearance
+@media_routes.route('/delete/<int:id>')
+@login_required
+def delete_media(id):
+    if current_user.clearance is not 'Admin':
+        return {"error": "Insufficient Clearance."}
+    
+    media = Media.query.get(id)
+    if media.creator_id == current_user.id:
+        db.session.delete(media)
+        db.session.commit()
+        return "Media successfully removed!"
+    else:
+        return "Must be the respective creator to delete this media"
