@@ -15,7 +15,7 @@ class Media(db.Model):
     type = db.Column(db.String(10), nullable=False)
     ip = db.Column(db.String(50), nullable=False)
     desc = db.Column(db.String, nullable=False)
-    url = db.Column(db.String)
+    url = db.Column(db.String, nullable=False)
 
     creator_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('users.id')))
 
@@ -29,7 +29,9 @@ class Media(db.Model):
             'type': self.type,
             'ip': self.ip,
             'desc': self.desc,
-            'url': self.url
+            'url': self.url,
+
+            'creatorId': self.creator_id
         }
 
         return data

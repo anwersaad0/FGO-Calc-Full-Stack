@@ -13,7 +13,9 @@ def media_exists(form, field):
         raise ValidationError("This media already exists!")
 
 class NewMedia(FlaskForm):
-    name = StringField("Item Name", validators=[DataRequired()])
-    type = StringField("Item Type", validators=[DataRequired()])
-    desc = StringField("Item Type", validators=[DataRequired()])
-    url = StringField("Item Type", validators=[DataRequired()])
+    name = StringField("Media Name", validators=[DataRequired()])
+    type = StringField("Media Type", validators=[DataRequired()])
+    ip = StringField("Media IP", validators=[DataRequired()])
+    desc = StringField("Media Type", validators=[DataRequired()])
+    url = FileField("Media File", validators=[FileRequired(), FileAllowed(list(ALLOWED_MEDIA_EXTENSIONS))])
+    
