@@ -43,6 +43,10 @@ function ContactPage() {
                             />
                         </div>
 
+                        <div>
+                            
+                        </div>
+
                         <button>Send</button>
                     </form>
                 </div>
