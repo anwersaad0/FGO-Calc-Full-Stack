@@ -8,21 +8,28 @@ const DELETE_MEDIA = "/DELETE_MEDIA";
 const getOneMedia = (media) => {
     return {
         type: GET_MEDIA,
-        payload: media
+        media
     }
 }
 
 const getAllMedia = (allMedia) => {
     return {
         type: GET_MEDIA_LIST,
-        payload: allMedia
+        allMedia
     }
 }
 
 const getMediaByIP = (media) => {
     return {
         type: GET_MEDIA_BY_IP,
-        payload: media
+        media
+    }
+}
+
+const postMedia = (media) => {
+    return {
+        type: POST_MEDIA,
+        media
     }
 }
 
@@ -62,6 +69,21 @@ export const getMediaByIpThunk = (ip) => async (dispatch) => {
     }
 }
 
+export const postMediaThunk = (media) => async (dispatch) => {
+    const res = await fetch(`/api/media/new`, {
+        method: 'POST',
+        body: media
+    });
+
+    if (res.ok) {
+        const media = await res.json();
+        await dispatch(postMedia(media));
+        return media;
+    } else {
+        return ("Response not ok.")
+    }
+}
+
 //state and reducer
 
 const initState = {}
@@ -86,6 +108,10 @@ function mediaReducer(state = initState, action) {
                 return ipMedia;
             }, {});
             return {...ipState};
+        case POST_MEDIA:
+            newState = {...state};
+            newState[action.media.id] = action.media;
+            return newState;
         default:
             return state;
     }
