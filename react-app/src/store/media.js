@@ -12,6 +12,13 @@ const getOneMedia = (media) => {
     }
 }
 
+const getAllMedia = (allMedia) => {
+    return {
+        type: GET_MEDIA_LIST,
+        payload: allMedia
+    }
+}
+
 //thunk methods here
 
 export const getOneMediaThunk = (mediaId) => async (dispatch) => {
@@ -21,6 +28,17 @@ export const getOneMediaThunk = (mediaId) => async (dispatch) => {
         const media = await res.json();
         dispatch(getOneMedia(media));
         return media;
+    } else {
+        return ("Response not ok.");
+    }
+}
+
+export const getAllMediaThunk = () => async (dispatch) => {
+    const res = await fetch("/api/media");
+
+    if (res.ok) {
+        const { media } = await res.json();
+        dispatch(getAllMedia(media));
     } else {
         return ("Response not ok.");
     }
@@ -36,6 +54,12 @@ function mediaReducer(state = initState, action) {
         case GET_MEDIA:
             newState = {...state};
             newState[action.media.id] = action.item;
+            return newState;
+        case GET_MEDIA_LIST:
+            newState = {...state};
+            action.allMedia.forEach(media => {
+                newState[media.id] = media;
+            });
             return newState;
         default:
             return state;
