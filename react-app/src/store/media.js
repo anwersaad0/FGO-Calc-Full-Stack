@@ -19,6 +19,13 @@ const getAllMedia = (allMedia) => {
     }
 }
 
+const getMediaByIP = (media) => {
+    return {
+        type: GET_MEDIA_BY_IP,
+        payload: media
+    }
+}
+
 //thunk methods here
 
 export const getOneMediaThunk = (mediaId) => async (dispatch) => {
@@ -44,6 +51,17 @@ export const getAllMediaThunk = () => async (dispatch) => {
     }
 }
 
+export const getMediaByIpThunk = (ip) => async (dispatch) => {
+    const res = await fetch(`/api/media/${ip}`);
+
+    if (res.ok) {
+        const { mediaByIP } = await res.json();
+        dispatch(getMediaByIP(mediaByIP));
+    } else {
+        return ("Response not ok.");
+    }
+}
+
 //state and reducer
 
 const initState = {}
@@ -61,6 +79,13 @@ function mediaReducer(state = initState, action) {
                 newState[media.id] = media;
             });
             return newState;
+        case GET_MEDIA_BY_IP:
+            //newState = {...state};
+            const ipState = action.media.reduce((ipMedia, med) => {
+                ipMedia[med.id] = med;
+                return ipMedia;
+            }, {});
+            return {...ipState};
         default:
             return state;
     }
