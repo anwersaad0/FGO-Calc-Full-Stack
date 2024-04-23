@@ -24,7 +24,7 @@ def get_media_by_ip(ip_name):
     return {'ip_media': [media.to_dict() for media in ip_media]}
 
 #WIP Post request for media
-@media_routes.route('/media/new', methods=['POST'])
+@media_routes.route('/new', methods=['POST'])
 @login_required
 def add_item():
     if current_user.clearance is not 'Admin':
@@ -78,7 +78,7 @@ def edit_media(id):
     return {"errors": form.errors}
 
 #reminder to rework to further accommodate for user clearance
-@media_routes.route('/delete/<int:id>')
+@media_routes.route('/delete/<int:id>', methods=['DELETE'])
 @login_required
 def delete_media(id):
     if current_user.clearance is not 'Admin':

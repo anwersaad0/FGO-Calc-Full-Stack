@@ -33,6 +33,20 @@ const postMedia = (media) => {
     }
 }
 
+const editMedia = (media) => {
+    return {
+        type: EDIT_MEDIA,
+        media
+    }
+}
+
+const delMedia = (mediaId) => {
+    return {
+        type: DELETE_MEDIA,
+        mediaId
+    }
+}
+
 //thunk methods here
 
 export const getOneMediaThunk = (mediaId) => async (dispatch) => {
@@ -84,6 +98,34 @@ export const postMediaThunk = (media) => async (dispatch) => {
     }
 }
 
+export const editMediaThunk = (media) => async (dispatch) => {
+    const res = await fetch(`api/media/edit/${media.id}`, {
+        method: 'PUT',
+        body: media
+    });
+
+    if (res.ok) {
+        const media = await res.json();
+        dispatch(editMedia(media));
+        return media;
+    } else {
+        return ("Response not ok.")
+    }
+}
+
+export const delMediaThunk = (mediaId) => async (dispatch) => {
+    const res = await fetch(`/api/media/${mediaId}`, {
+        method: 'DELETE'
+    });
+
+    if (res.ok) {
+        dispatch(delMedia(mediaId));
+        return {'message': 'Successfully Deleted'}
+    } else {
+        return ("There was an issue while trying to process the request")
+    }
+}
+
 //state and reducer
 
 const initState = {}
@@ -112,6 +154,14 @@ function mediaReducer(state = initState, action) {
             newState = {...state};
             newState[action.media.id] = action.media;
             return newState;
+        case EDIT_MEDIA:
+            newState = {...state};
+            newState[action.media.id] = action.media;
+            return newState;
+        case DELETE_MEDIA:
+            newState = {...state};
+            delete newState[action.mediaId];
+            return newState
         default:
             return state;
     }
