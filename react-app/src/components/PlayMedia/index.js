@@ -16,6 +16,8 @@ function PlayMediaPage() {
         dispatch(getOneMediaThunk(mediaId));
     }, [mediaId, dispatch]);
 
+    console.log('media detail', media?.type)
+
     if (!media) return null;
 
     return (
@@ -24,7 +26,7 @@ function PlayMediaPage() {
             <div>
 
                 <div>
-                    
+
                     Media Title Here
                     <div>{media.name}</div>
 
@@ -34,7 +36,7 @@ function PlayMediaPage() {
 
                 <div>
                     Media contents here
-                    <div>{media.url}</div>
+                    <div>{(media?.type === 'video') ? (<video width={640} height={480}> <source src={media?.url} type="video/mp4" /> </video>) : ""}</div>
                 </div>
 
             </div>

@@ -10,6 +10,7 @@ import HomePage from "./components/HomePage";
 import ProjectsPage from "./components/ProjectsPage";
 import AboutPage from "./components/AboutPage";
 import ContactPage from "./components/ContactPage";
+import PlayMediaPage from "./components/PlayMedia";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,9 @@ function App() {
           </Route>
           <Route exact path="/contact">
             <ContactPage />
+          </Route>
+          <Route exact path="/media/:mediaId">
+            <PlayMediaPage />
           </Route>
           <Route exact path="/">
             <HomePage />

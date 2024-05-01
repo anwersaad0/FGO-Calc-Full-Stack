@@ -135,7 +135,7 @@ function mediaReducer(state = initState, action) {
     switch(action.type) {
         case GET_MEDIA:
             newState = {...state};
-            newState[action.media.id] = action.item;
+            newState[action.media.id] = action.media;
             return newState;
         case GET_MEDIA_LIST:
             newState = {...state};
