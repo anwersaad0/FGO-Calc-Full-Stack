@@ -14,9 +14,10 @@ function PlayMediaPage() {
 
     useEffect(() => {
         dispatch(getOneMediaThunk(mediaId));
-    }, [mediaId, dispatch]);
+    }, [mediaId, media?.url, dispatch]);
 
     console.log('media detail', media?.type)
+    console.log('media url', media?.url);
 
     if (!media) return null;
 
@@ -35,8 +36,10 @@ function PlayMediaPage() {
                 </div>
 
                 <div>
-                    Media contents here
-                    <div>{(media?.type === 'video') ? (<video width={640} height={480}> <source src={media?.url} type="video/mp4" /> </video>) : ""}</div>
+                    <iframe src={media?.url}>
+                    {(media?.type === 'video') ? (<video controls> <source src={media?.url} type="video/mp4" /> </video>) : ""}
+                    </iframe>
+
                 </div>
 
             </div>

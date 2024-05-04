@@ -44,7 +44,10 @@ function ContactPage() {
                         </div>
 
                         <div>
-                            
+                            <input 
+                            type="number"
+                            placeholder="Phone Number"
+                            />
                         </div>
 
                         <button>Send</button>
