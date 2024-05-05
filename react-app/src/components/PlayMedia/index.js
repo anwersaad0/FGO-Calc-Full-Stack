@@ -36,9 +36,9 @@ function PlayMediaPage() {
                 </div>
 
                 <div>
-                    {/* <iframe src={media?.url}>
+                    <iframe src={media?.url}>
                     {(media?.type === 'video') ? (<video controls> <source src={media?.url} type="video/mp4" /> </video>) : ""}
-                    </iframe> */}
+                    </iframe>
 
                 </div>
 
