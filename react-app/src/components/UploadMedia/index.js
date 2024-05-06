@@ -29,8 +29,30 @@ function UploadMediaPage() {
                 Post New Media
             </h1>
 
-            <form>
+            <form onSubmit={(e) => handleSubmit(e)} className="new-media-details">
+                <div className="create-detail">
+                    <div className="label-div"><label>Media Title:</label></div>
+                    <input
+                        type="text"
+                        name="name"
+                        onChange={e => setName(e.target.value)}
+                        value={name}
+                        required={true}
+                    >
+                    </input>
+                </div>
 
+                <div>
+
+                </div>
+
+                <div>
+
+                </div>
+
+                <div className="create-detail">
+                    <button className="confirm-create-media" type="submit">Upload Media</button>
+                </div>
             </form>
         </main>
     )
