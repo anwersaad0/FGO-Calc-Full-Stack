@@ -43,7 +43,23 @@ function UploadMediaPage() {
                 </div>
 
                 <div>
+                    <select name="media type">
+                        <option value="comic">Comic</option>
+                        <option value="video"> Video</option>
+                    </select>
+                </div>
 
+                <div>
+                    <div className="label-div"><label>Media Title:</label></div>
+                    <input
+                        type="file"
+                        name="media"
+                        accept=""
+                        onChange={e => setName(e.target.value)}
+                        value={name}
+                        required={true}
+                    >
+                    </input>
                 </div>
 
                 <div>
