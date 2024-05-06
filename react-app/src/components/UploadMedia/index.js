@@ -43,27 +43,48 @@ function UploadMediaPage() {
                 </div>
 
                 <div>
-                    <select name="media type">
+                    <div className="label-div"><label>Media Type:</label></div>
+                    <select name="media type" required={true} onChange={(e) => setType(e.target.value)}>
+                        <option value={""}>Select Media Type</option>
                         <option value="comic">Comic</option>
                         <option value="video"> Video</option>
                     </select>
                 </div>
 
                 <div>
-                    <div className="label-div"><label>Media Title:</label></div>
+                    <div className="label-div"><label>Media IP:</label></div>
                     <input
-                        type="file"
-                        name="media"
-                        accept=""
-                        onChange={e => setName(e.target.value)}
-                        value={name}
+                        type="text"
+                        name="IP"
+                        onChange={e => setIp(e.target.value)}
+                        value={ip}
+                        required={true}
+                    ></input>
+                </div>
+
+                <div>
+                    <div className="label-div"><label>Media Description:</label></div>
+                    <input
+                        type="text"
+                        name="desc"
+                        onChange={e => setDesc(e.target.value)}
+                        value={desc}
                         required={true}
                     >
                     </input>
                 </div>
 
                 <div>
-
+                    <div className="label-div"><label>Media File:</label></div>
+                    <input
+                        type="file"
+                        name="media"
+                        accept=""
+                        onChange={e => setFile(e.target.value)}
+                        value={file}
+                        required={true}
+                    >
+                    </input>
                 </div>
 
                 <div className="create-detail">
