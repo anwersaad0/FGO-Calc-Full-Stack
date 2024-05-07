@@ -102,12 +102,42 @@ function UploadMediaPage() {
                     </input>
                 </div>
 
+                {/* <div>
+                    {type === 'video' ? (
+                        <div>
+                            <div className="label-div"><label>Media File:</label></div>
+                            <input
+                                type="file"
+                                name="media"
+                                accept="video/*"
+                                onChange={e => setFile(e.target.value)}
+                                value={file}
+                                required={true}
+                            >
+                            </input>
+                        </div>
+                    ) : (
+                        <div>
+                            <div className="label-div"><label>Media File:</label></div>
+                            <input
+                                type="file"
+                                name="media"
+                                accept="image/*"
+                                onChange={e => setFile(e.target.value)}
+                                value={file}
+                                required={true}
+                            >
+                            </input>
+                        </div>
+                    ) }
+                </div> */}
+
                 <div>
                     <div className="label-div"><label>Media File:</label></div>
                     <input
                         type="file"
                         name="media"
-                        accept=""
+                        accept={type === "video" ? "video/*" : "image/*"}
                         onChange={e => setFile(e.target.value)}
                         value={file}
                         required={true}
