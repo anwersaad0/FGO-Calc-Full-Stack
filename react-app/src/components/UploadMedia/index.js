@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { postMediaThunk } from "../../store/media";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 function UploadMediaPage() {
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const sessionUser = useSelector(state => state.session.user);
 
@@ -13,10 +16,34 @@ function UploadMediaPage() {
     const [desc, setDesc] = useState('');
     const [file, setFile] = useState('');
 
+    const [valErrs, setValErrs] = useState([]);
+    const [hasSubbed, setHasSubbed] = useState(false);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        
+        setHasSubbed(true);
+        if (valErrs.length) return alert('Your upload has errors, submit failed!');
+
+        const formData = new FormData()
+        formData.append('name', name);
+        formData.append('type', type);
+        formData.append('ip', ip);
+        formData.append('desc', desc);
+        formData.append('url', file);
+
+        const newMedia = await dispatch(postMediaThunk(formData));
+
+        setName('');
+        setType('');
+        setIp('');
+        setDesc('');
+        setFile('');
+
+        setValErrs([]);
+        setHasSubbed(false);
+
+        history.push(`/media/${newMedia.id}`);
     }
 
     if (!sessionUser || sessionUser?.clearance != 'Admin') {
@@ -59,7 +86,8 @@ function UploadMediaPage() {
                         onChange={e => setIp(e.target.value)}
                         value={ip}
                         required={true}
-                    ></input>
+                    >
+                    </input>
                 </div>
 
                 <div>
