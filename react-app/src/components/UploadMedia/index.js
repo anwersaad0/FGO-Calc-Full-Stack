@@ -47,7 +47,11 @@ function UploadMediaPage() {
     }
 
     if (!sessionUser || sessionUser?.clearance != 'Admin') {
-        return null;
+        return (
+            <>
+                You lack clearance to access this page.
+            </>
+        );
     }
 
     return (

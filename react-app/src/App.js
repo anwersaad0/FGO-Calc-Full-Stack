@@ -11,6 +11,7 @@ import ProjectsPage from "./components/ProjectsPage";
 import AboutPage from "./components/AboutPage";
 import ContactPage from "./components/ContactPage";
 import PlayMediaPage from "./components/PlayMedia";
+import UploadMediaPage from "./components/UploadMedia";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route exact path="/contact">
             <ContactPage />
+          </Route>
+          <Route exact path="/media/new">
+            <UploadMediaPage />
           </Route>
           <Route exact path="/media/:mediaId">
             <PlayMediaPage />
