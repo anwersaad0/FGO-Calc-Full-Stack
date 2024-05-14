@@ -27,6 +27,8 @@ def get_media_by_ip(ip_name):
 @media_routes.route('/new', methods=['POST'])
 @login_required
 def add_item():
+    print("------TESTING CCC-------", current_user.clearance)
+
     if current_user.clearance is not 'Admin':
         return {"error": "Insufficient Clearance."}
 
@@ -34,7 +36,11 @@ def add_item():
 
     form['csrf_token'].data = request.cookies['csrf_token']
 
+    #print("-------TESTING BBB-------")
+
     if form.validate_on_submit():
+        #print("-------TESTING AAA-------")
+
         media_file = form.data['file']
         media_file.filename = get_unique_media_filename(media_file.filename)
         media_file_upload = upload_file_to_s3(media_file)

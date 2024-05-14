@@ -46,7 +46,7 @@ function UploadMediaPage() {
         history.push(`/media/${newMedia.id}`);
     }
 
-    if (!sessionUser || sessionUser?.clearance != 'Admin') {
+    if (!sessionUser || sessionUser?.clearance !== 'Admin') {
         return (
             <>
                 You lack clearance to access this page.
@@ -59,6 +59,16 @@ function UploadMediaPage() {
             <h1>
                 Post New Media
             </h1>
+
+            {hasSubbed && valErrs.length > 0 && (
+                <div className="errors-text">
+                    <ul>
+                        {valErrs?.map(err => (
+                            <li key={err}>{err}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
 
             <form onSubmit={(e) => handleSubmit(e)} className="new-media-details">
                 <div className="create-detail">
