@@ -36,9 +36,21 @@ function PlayMediaPage() {
                 </div>
 
                 <div>
-                    <iframe src={media?.url}>
+                    {/* <iframe src={media?.url}>
                     {(media?.type === 'video') ? (<video controls> <source src={media?.url} type="video/mp4" /> </video>) : ""}
-                    </iframe>
+                    </iframe> */}
+
+                    {
+                        (media?.type === 'video') ? (
+                            <iframe src={media?.url}>
+                                <video controls>
+                                    <source src={media?.url} type="video/mp4" />
+                                </video>
+                            </iframe>
+                        ) : (
+                            <img src={media?.url} alt="Readable media is supposed to be here" />
+                        )
+                    }
 
                 </div>
 
