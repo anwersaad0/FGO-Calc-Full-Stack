@@ -29,17 +29,17 @@ def get_media_by_ip(ip_name):
 def add_item():
     print("------TESTING CCC-------", current_user.clearance)
 
-    if current_user.clearance is not 'Admin':
-        return {"error": "Insufficient Clearance."}
+    # if current_user.clearance is not 'Admin':
+    #     return {"error": "Insufficient Clearance."}
 
     form = NewMedia()
 
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    #print("-------TESTING BBB-------")
+    print("-------TESTING BBB-------")
 
     if form.validate_on_submit():
-        #print("-------TESTING AAA-------")
+        print("-------TESTING AAA-------")
 
         media_file = form.data['file']
         media_file.filename = get_unique_media_filename(media_file.filename)
