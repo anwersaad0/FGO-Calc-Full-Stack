@@ -38,6 +38,8 @@ def add_item():
 
     print("-------TESTING BBB-------")
 
+    #likely error with bucket
+
     if form.validate_on_submit():
         print("-------TESTING AAA-------")
 
