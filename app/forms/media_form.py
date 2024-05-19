@@ -4,7 +4,7 @@ from wtforms import StringField
 from wtforms.validators import DataRequired, ValidationError
 
 from app.models import Media
-from app.api.aws_media_helpers import ALLOWED_MEDIA_EXTENSIONS
+from app.api.aws_media_helpers import ALLOWED_VIDEO_EXTENSIONS
 
 def media_exists(form, field):
     new_media_name = field.data
@@ -17,5 +17,5 @@ class NewMedia(FlaskForm):
     type = StringField("Media Type", validators=[DataRequired()])
     ip = StringField("Media IP", validators=[DataRequired()])
     desc = StringField("Media Type", validators=[DataRequired()])
-    url = FileField("Media File", validators=[FileRequired(), FileAllowed(list(ALLOWED_MEDIA_EXTENSIONS))])
+    url = FileField("Media File", validators=[FileRequired(), FileAllowed(list(ALLOWED_VIDEO_EXTENSIONS))])
     

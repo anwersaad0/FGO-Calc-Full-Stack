@@ -3,23 +3,27 @@ import botocore
 import os
 import uuid
 
-BUCKET_NAME = os.environ.get("S3_VIDEO_BUCKET")
+BUCKET_NAME = os.environ.get("S3_IMAGE_BUCKET")
 S3_LOCATION = f"http://{BUCKET_NAME}.s3.amazonaws.com/"
-ALLOWED_VIDEO_EXTENSIONS = {"mp4", "wav"}
+ALLOWED_IMAGE_EXTENSIONS = {"png", "jpg", "jpeg", "gif"}
 
 s3 = boto3.client(
-    "s3",
-    aws_access_key_id=os.environ.get("S3_VIDEO_KEY"),
-    aws_secret_access_key=os.environ.get("S3_VIDEO_SECRET")
+   "s3",
+   aws_access_key_id=os.environ.get("S3_IMAGE_KEY"),
+   aws_secret_access_key=os.environ.get("S3_IMAGE_SECRET")
 )
 
-def get_unique_media_filename(filename):
+def allowed_file(filename):
+    return "." in filename and \
+           filename.rsplit(".", 1)[1].lower() in ALLOWED_IMAGE_EXTENSIONS
+
+def get_unique_image_filename(filename):
     ext = filename.rsplit(".", 1)[1].lower()
     unique_filename = uuid.uuid4().hex
     return f"{unique_filename}.{ext}"
 
 def upload_file_to_s3(file, acl="public-read"):
-    print(os.environ.get("S3_VIDEO_KEY"))
+    print(os.environ.get("S3_IMAGE_KEY"))
     try:
         s3.upload_fileobj(
             file,
@@ -31,18 +35,7 @@ def upload_file_to_s3(file, acl="public-read"):
             }
         )
     except Exception as e:
+        # in case the our s3 upload fails
         return {"errors": str(e)}
-    
+
     return {"url": f"{S3_LOCATION}{file.filename}"}
-
-def remove_file_from_s3(url):
-    key = url.rsplit("/", 1)[1]
-
-    try:
-        s3.delete_object(
-            Bucket=BUCKET_NAME,
-            Key=key
-        )
-    except Exception as e:
-        return {"errors": str(e)}
-    return True
