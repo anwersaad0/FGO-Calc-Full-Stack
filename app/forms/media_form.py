@@ -5,6 +5,7 @@ from wtforms.validators import DataRequired, ValidationError
 
 from app.models import Media
 from app.api.aws_media_helpers import ALLOWED_VIDEO_EXTENSIONS
+from app.api.aws_image_helpers import ALLOWED_IMAGE_EXTENSIONS
 
 def media_exists(form, field):
     new_media_name = field.data
