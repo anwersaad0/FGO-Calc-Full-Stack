@@ -152,8 +152,7 @@ function UploadMediaPage() {
                         type="file"
                         name="media"
                         accept={type === "video" ? "video/*" : "image/*"}
-                        onChange={e => setFile(e.target.files[0])}
-                        value={file}
+                        onChange={(e) => setFile(e.target.files[0])}
                         required={true}
                     >
                     </input>
