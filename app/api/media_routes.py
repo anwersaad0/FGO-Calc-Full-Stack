@@ -43,7 +43,7 @@ def add_item():
     if form.validate_on_submit():
         print("-------TESTING AAA-------")
 
-        media_file = form.data['file']
+        media_file = form.data['url']
         media_file.filename = get_unique_media_filename(media_file.filename)
         media_file_upload = upload_file_to_s3(media_file)
 
