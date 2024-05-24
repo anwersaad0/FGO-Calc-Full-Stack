@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { postMediaThunk } from "../../store/media";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
+import './UploadMedia.css';
+
 
 function UploadMediaPage() {
     const dispatch = useDispatch();
@@ -56,7 +58,7 @@ function UploadMediaPage() {
 
     return (
         <main>
-            <h1>
+            <h1 className="upload-title">
                 Post New Media
             </h1>
 
@@ -72,10 +74,11 @@ function UploadMediaPage() {
 
             <form onSubmit={(e) => handleSubmit(e)} className="new-media-details">
                 <div className="create-detail">
-                    <div className="label-div"><label>Media Title:</label></div>
+                    <div className="label-div"><label className="name-input-label">Media Title:</label></div>
                     <input
                         type="text"
                         name="name"
+                        size="40"
                         onChange={e => setName(e.target.value)}
                         value={name}
                         required={true}
@@ -83,7 +86,35 @@ function UploadMediaPage() {
                     </input>
                 </div>
 
-                <div>
+                <div className="create-detail">
+                    <div className="label-div"><label className="ip-input-label">Media IP:</label></div>
+                    <input
+                        type="text"
+                        name="IP"
+                        size="40"
+                        onChange={e => setIp(e.target.value)}
+                        value={ip}
+                        required={true}
+                    >
+                    </input>
+                </div>
+
+                <div className="create-detail">
+                    <div className="label-div"><label className="desc-input-label">Media Description:</label></div>
+                    <textarea
+                        className="desc-input"
+                        type="text"
+                        name="desc"
+                        cols="40"
+                        rows="8"
+                        onChange={e => setDesc(e.target.value)}
+                        value={desc}
+                        required={true}
+                    >
+                    </textarea>
+                </div>
+
+                <div className="create-detail">
                     <div className="label-div"><label>Media Type:</label></div>
                     <select name="media type" required={true} onChange={(e) => setType(e.target.value)}>
                         <option value={""}>Select Media Type</option>
@@ -92,33 +123,10 @@ function UploadMediaPage() {
                     </select>
                 </div>
 
-                <div>
-                    <div className="label-div"><label>Media IP:</label></div>
-                    <input
-                        type="text"
-                        name="IP"
-                        onChange={e => setIp(e.target.value)}
-                        value={ip}
-                        required={true}
-                    >
-                    </input>
-                </div>
-
-                <div>
-                    <div className="label-div"><label>Media Description:</label></div>
-                    <input
-                        type="text"
-                        name="desc"
-                        onChange={e => setDesc(e.target.value)}
-                        value={desc}
-                        required={true}
-                    >
-                    </input>
-                </div>
-
-                <div>
+                <div className="create-detail">
                     <div className="label-div"><label>Media File:</label></div>
                     <input
+                        className="file-input"
                         type="file"
                         name="media"
                         accept={type === "video" ? "video/*" : "image/*"}

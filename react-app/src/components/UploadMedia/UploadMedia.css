@@ -1,3 +1,31 @@
+.upload-title {
+    text-align: center;
+}
+
 .new-media-details {
-    
+    text-align: center;
+}
+
+.create-detail {
+    margin: 16px;
+}
+
+.desc-input {
+    resize: none;
+}
+
+.file-input {
+    margin-left: 64px;
+}
+
+.name-input-label {
+    margin-right: 236px;
+}
+
+.ip-input-label {
+    margin-right: 252px;
+}
+
+.desc-input-label {
+    margin-right: 192px;
 }
