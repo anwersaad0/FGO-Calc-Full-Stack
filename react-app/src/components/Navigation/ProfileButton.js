@@ -51,6 +51,9 @@ function ProfileButton({ user }) {
             <li>
               <button className="logout-button" onClick={handleLogout}>Log Out</button>
             </li>
+            <li>
+              <NavLink className="upload-btn" exact to="/media/new">Upload Media</NavLink>
+            </li>
           </>
         ) : (
           <>
