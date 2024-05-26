@@ -1,5 +1,6 @@
 from flask import Blueprint, request
-from app.models import ForumPost
+from flask_login import current_user, login_required
+from app.models import User, ForumPost
 
 forum_post_routes = Blueprint('posts', __name__)
 
@@ -12,3 +13,13 @@ def all_posts():
 def get_post(id):
     post = ForumPost.query.get(id)
     return post.to_dict()
+
+@forum_post_routes('/new', methods=["POST"])
+@login_required
+def create_post():
+
+    #form
+
+
+
+    return {'error': form.errors}
