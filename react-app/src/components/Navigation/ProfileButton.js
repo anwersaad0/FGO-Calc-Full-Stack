@@ -52,7 +52,7 @@ function ProfileButton({ user }) {
               <button className="logout-button" onClick={handleLogout}>Log Out</button>
             </li>
             <li>
-              <NavLink className="upload-btn" exact to="/media/new">Upload Media</NavLink>
+              <NavLink className="upload-link" exact to="/media/new">Upload Media</NavLink>
             </li>
           </>
         ) : (

@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { useEffect } from "react";
 
+import './AboutPage.css';
 
 function AboutPage() {
     const dispatch = useDispatch()
@@ -11,7 +12,7 @@ function AboutPage() {
 
             <div className="container-about">
 
-                <div>
+                <div className="container-about-text">
                     Who We Are
 
                     <div>
