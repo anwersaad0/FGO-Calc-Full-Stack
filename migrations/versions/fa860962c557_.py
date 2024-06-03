@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: fa860962c557
-Revises: d3f937800d21
-Create Date: 2024-04-16 10:03:10.883095
+Revision ID: 744643d4f587
+Revises: 
+Create Date: 2024-06-02 19:18:01.622453
 
 """
 from alembic import op
@@ -48,7 +48,7 @@ def upgrade():
     sa.Column('type', sa.String(length=10), nullable=False),
     sa.Column('ip', sa.String(length=50), nullable=False),
     sa.Column('desc', sa.String(), nullable=False),
-    sa.Column('url', sa.String(), nullable=True),
+    sa.Column('url', sa.String(), nullable=False),
     sa.Column('creator_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['creator_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
