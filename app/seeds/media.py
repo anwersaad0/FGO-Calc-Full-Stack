@@ -7,7 +7,7 @@ def seed_media():
         type="video", 
         ip="example ip", 
         desc="example desciption", 
-        url="https://brainfreezerrr-media.s3.amazonaws.com/VTOL_VR_has_a_beautiful_and_complex.mp4", 
+        url="https://brainfreezerrr-media.s3.amazonaws.com/2389e59295c7495d881cecbe1af4d580.mp4", 
         creator_id=1
     )
 
