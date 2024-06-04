@@ -6,4 +6,4 @@ from app.models import ForumPost
 
 class NewPost(FlaskForm):
     title = StringField("Post Title", validators=[DataRequired()])
-    
+    text = StringField("Post Text", validators=[DataRequired()])
