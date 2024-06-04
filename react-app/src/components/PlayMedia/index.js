@@ -44,7 +44,8 @@ function PlayMediaPage() {
                         (media?.type === 'video') ? (
                             <iframe src={media?.url}>
                                 <video controls>
-                                    <source src={media?.url} type="video/mp4" />
+                                    {/* <source src={media?.url} type="video/mp4" /> */}
+                                    <meta property="og:video:url" content={media?.url} />
                                 </video>
                             </iframe>
                         ) : (
