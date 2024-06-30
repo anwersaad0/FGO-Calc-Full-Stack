@@ -114,7 +114,7 @@ export const editMediaThunk = (media) => async (dispatch) => {
 }
 
 export const delMediaThunk = (mediaId) => async (dispatch) => {
-    const res = await fetch(`/api/media/${mediaId}`, {
+    const res = await fetch(`/api/media/delete/${mediaId}`, {
         method: 'DELETE'
     });
 

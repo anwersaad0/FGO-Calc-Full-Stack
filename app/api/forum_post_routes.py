@@ -54,3 +54,15 @@ def edit_post(id):
         return post.to_dict()
     
     return {"errors": post.errors}
+
+@forum_post_routes.route('/delete/<int:id>', methods=['DELETE'])
+@login_required
+def delete_post(id):
+    post = ForumPost.query.get(id)
+
+    if post.user_id == current_user.id:
+        db.session.delete(post)
+        db.session.commit()
+        return "Your post was successfully removed!"
+    else:
+        return "Must be the post's creator to delete it!"
