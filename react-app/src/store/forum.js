@@ -107,6 +107,16 @@ const initState = {}
 function forumPostReducer(state = initState, action) {
     let newState;
     switch(action.type) {
+        case GET_ALL_FORUM_POSTS:
+            newState = {...state};
+            action.posts.forEach(post => {
+                newState[post.id] = post;
+            });
+            return newState;
+        case GET_FORUM_POST:
+            newState = {...state};
+            newState[action.post.id] = action.post;
+            return newState;
         default:
             return state;
     }
