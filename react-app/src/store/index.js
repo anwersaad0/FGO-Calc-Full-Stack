@@ -2,10 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
 import mediaReducer from './media';
+import forumPostReducer from './forum';
 
 const rootReducer = combineReducers({
   session,
   media: mediaReducer,
+  forum: forumPostReducer,
 });
 
 
