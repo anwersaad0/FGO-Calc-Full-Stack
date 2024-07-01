@@ -117,6 +117,18 @@ function forumPostReducer(state = initState, action) {
             newState = {...state};
             newState[action.post.id] = action.post;
             return newState;
+        case CREATE_FORUM_POST:
+            newState = {...state};
+            newState[action.post.id] = action.post;
+            return newState;
+        case EDIT_FORUM_POST:
+            newState = {...state};
+            newState[action.post.id] = action.post;
+            return newState;
+        case DELETE_FORUM_POST:
+            newState = {...state};
+            delete newState[action.id];
+            return newState;
         default:
             return state;
     }
