@@ -21,15 +21,29 @@ function ForumPost() {
 
             <div className="forum-post-container">
 
-                <div>
+                <div className="forum-post-detail-container">
 
+                    <div>
 
+                        {post.title}
+
+                    </div>
+
+                    <div>
+
+                        {post.text}
+
+                    </div>
 
                 </div>
 
-                <div>
+                <div className="forum-post-reply-container">
 
+                    <div>
 
+                        {sessionUser ? "Post a reply" : "Must be signed in to reply"}
+
+                    </div>
 
                 </div>
 
