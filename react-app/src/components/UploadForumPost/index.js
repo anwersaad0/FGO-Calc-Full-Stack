@@ -20,6 +20,7 @@ function UploadForumPost() {
         e.preventDefault();
 
         setHasSubbed(true);
+        if (valErrs.length) return alert('Your post has errors, submit failed');
 
         const formData = new FormData();
         formData.append('title', title);
@@ -36,6 +37,16 @@ function UploadForumPost() {
         history.push(`/forum/posts/${newPost.id}`);
     }
 
+    if (!sessionUser) {
+        return (
+            <>
+
+                Must be signed in to create a forum post.
+
+            </>
+        )
+    }
+
     return (
         <main>
 
@@ -45,9 +56,48 @@ function UploadForumPost() {
 
             </div>
 
-            <form onSubmit={"n"}>
+            {hasSubbed && valErrs.length > 0 && (
+                <div className="errors-text">
+                    <ul>
+                        {valErrs?.map(err => (
+                            <li key={err}>{err}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
 
+            <form onSubmit={(e) => handleSubmit(e)} className="new-post-details">
 
+                <div className="create-detail">
+                    <div className="label-div"><label className="title-input-label">Post Title:</label></div>
+                    <input
+                        type="text"
+                        name="title"
+                        size="40"
+                        onChange={e => setTitle(e.target.value)}
+                        value={title}
+                        required={true}
+                    ></input>
+                </div>
+
+                <div className="create-detail">
+                    <div className="label-div"><label className="text-input-label">Post Text:</label></div>
+                    <textarea
+                        className="text-input"
+                        type="text"
+                        name="text"
+                        cols="40"
+                        rows="8"
+                        onChange={e => setText(e.target.value)}
+                        value={text}
+                        required={true}
+                    >
+                    </textarea>
+                </div>
+
+                <div className="create-detail">
+                    <button className="confirm-create-post" type="submit">Upload Post</button>
+                </div>
 
             </form>
 
