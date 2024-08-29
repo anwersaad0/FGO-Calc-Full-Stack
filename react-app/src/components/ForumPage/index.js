@@ -6,7 +6,7 @@ import { allPostsThunk } from "../../store/forum";
 
 function ForumPage() {
     const dispatch = useDispatch();
-    const posts = useSelector((state) => Object.values(state.posts));
+    const posts = useSelector((state) => Object.values(state.forum));
 
     const [query, setQuery] = useState("");
 
