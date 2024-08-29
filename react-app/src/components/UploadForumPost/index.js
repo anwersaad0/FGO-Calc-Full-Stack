@@ -104,3 +104,5 @@ function UploadForumPost() {
         </main>
     )
 }
+
+export default UploadForumPost;

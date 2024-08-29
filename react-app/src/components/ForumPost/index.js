@@ -25,13 +25,13 @@ function ForumPost() {
 
                     <div>
 
-                        {post.title}
+                        {post?.title}
 
                     </div>
 
                     <div>
 
-                        {post.text}
+                        {post?.text}
 
                     </div>
 

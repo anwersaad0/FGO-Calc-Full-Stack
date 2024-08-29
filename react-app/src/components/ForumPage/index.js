@@ -6,7 +6,7 @@ import { allPostsThunk } from "../../store/forum";
 
 function ForumPage() {
     const dispatch = useDispatch();
-    const posts = useSelector((state) => Object.values(state.forum.posts));
+    const posts = useSelector((state) => Object.values(state.posts));
 
     const [query, setQuery] = useState("");
 
@@ -29,7 +29,7 @@ function ForumPage() {
                         } else if (post.title.toLowerCase().includes(query.toLocaleLowerCase())) {
                             return post;
                         }
-                    }).map(({title}) => (
+                    }).map(({id, title}) => (
                         <NavLink className='post-mini-details' exact to={`/forum/posts/${id}`}>
 
                             <div>

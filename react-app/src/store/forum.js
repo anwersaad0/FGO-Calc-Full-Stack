@@ -42,7 +42,7 @@ const deletePost = (post) => {
 //thunks
 
 export const allPostsThunk = () => async (dispatch) => {
-    const res = await fetch("/api/posts");
+    const res = await fetch("/api/forum");
 
     if (res.ok) {
         const { posts } = await res.json();
@@ -53,7 +53,7 @@ export const allPostsThunk = () => async (dispatch) => {
 }
 
 export const onePostThunk = (id) => async (dispatch) => {
-    const res = await fetch(`/api/posts/${id}`);
+    const res = await fetch(`/api/forum/${id}`);
 
     if (res.ok) {
         const post = await res.json();
@@ -62,7 +62,7 @@ export const onePostThunk = (id) => async (dispatch) => {
 }
 
 export const createPostThunk = (post) => async (dispatch) => {
-    const res = await fetch('/api/posts/new', {
+    const res = await fetch('/api/forum/new', {
         method: 'POST',
         body: post
     });
@@ -75,7 +75,7 @@ export const createPostThunk = (post) => async (dispatch) => {
 }
 
 export const editPostThunk = (post) => async (dispatch) => {
-    const res = await fetch(`/api/posts/edit/${post.id}`, {
+    const res = await fetch(`/api/forum/edit/${post.id}`, {
         method: 'PUT',
         body: post
     });
@@ -88,7 +88,7 @@ export const editPostThunk = (post) => async (dispatch) => {
 }
 
 export const deletePostThunk = (id) => async (dispatch) => {
-    const res = await fetch(`/api/posts/delete/${id}`, {
+    const res = await fetch(`/api/forum/delete/${id}`, {
         method: 'DELETE'
     });
 

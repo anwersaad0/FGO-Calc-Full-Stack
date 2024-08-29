@@ -12,6 +12,9 @@ import AboutPage from "./components/AboutPage";
 import ContactPage from "./components/ContactPage";
 import PlayMediaPage from "./components/PlayMedia";
 import UploadMediaPage from "./components/UploadMedia";
+import ForumPage from "./components/ForumPage";
+import ForumPost from "./components/ForumPost";
+import UploadForumPost from "./components/UploadForumPost";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +35,15 @@ function App() {
             <SignupFormPage />
           </Route>
 
+          <Route exact path="/forum/posts/new">
+            <UploadForumPost />
+          </Route>
+          <Route exact path="/forum/posts/:postId">
+            <ForumPost />
+          </Route>
+          <Route exact path="/forum/posts">
+            <ForumPage />
+          </Route>
           <Route exact path="/projects">
             <ProjectsPage />
           </Route>
