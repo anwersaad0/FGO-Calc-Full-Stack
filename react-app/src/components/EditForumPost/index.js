@@ -30,10 +30,17 @@ function EditForumPost() {
         setHasSubbed(true);
         if (valErrs.length) return alert('Your edits have errors, submit changes failed')
 
-        //const formData = new FormData();
-        //formData.append('text', text);
+        const formData = new FormData();
+        formData.append('text', text);
 
+        //make edit to editPostThunk accordingly
+        const editedPost = await dispatch(editPostThunk(post.id))
         setText('');
+
+        setValErrs([]);
+        setHasSubbed(false);
+
+        history.push(`/forum/posts/${editedPost.id}`);
     }
 
     if (!sessionUser) {
