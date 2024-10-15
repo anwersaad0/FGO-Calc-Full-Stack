@@ -74,7 +74,6 @@ export const createPostThunk = (post) => async (dispatch) => {
     }
 }
 
-// add implementation of forms into the function
 export const editPostThunk = (post) => async (dispatch) => {
     const res = await fetch(`/api/forum/edit/${post.id}`, {
         method: 'PUT',

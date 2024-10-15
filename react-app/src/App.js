@@ -14,6 +14,7 @@ import PlayMediaPage from "./components/PlayMedia";
 import UploadMediaPage from "./components/UploadMedia";
 import ForumPage from "./components/ForumPage";
 import ForumPost from "./components/ForumPost";
+import EditForumPost from "./components/EditForumPost";
 import UploadForumPost from "./components/UploadForumPost";
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route exact path="/forum/posts/:postId">
             <ForumPost />
+          </Route>
+          <Route exact path="/forum/posts/edit/:postId">
+            <EditForumPost />
           </Route>
           <Route exact path="/forum/posts">
             <ForumPage />

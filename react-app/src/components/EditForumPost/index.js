@@ -9,7 +9,7 @@ function EditForumPost() {
     const history = useHistory();
 
     const sessionUser = useSelector(state => state.session.user);
-    const forumPost = useSelector(state => state.posts[postId]);
+    const forumPost = useSelector(state => state.forum[postId]);
 
     useEffect(() => {
         if (forumPost) {
@@ -33,8 +33,7 @@ function EditForumPost() {
         const formData = new FormData();
         formData.append('text', text);
 
-        //make edit to editPostThunk accordingly
-        const editedPost = await dispatch(editPostThunk(post.id))
+        const editedPost = await dispatch(editPostThunk(forumPost))
         setText('');
 
         setValErrs([]);
