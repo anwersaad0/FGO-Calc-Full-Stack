@@ -39,7 +39,7 @@ function EditForumPost() {
         setValErrs([]);
         setHasSubbed(false);
 
-        history.push(`/forum/posts/${editedPost.id}`);
+        history.push(`/forum/posts/${forumPost?.id}`);
     }
 
     if (!sessionUser) {
@@ -79,8 +79,8 @@ function EditForumPost() {
                         className="text-input"
                         type="text"
                         name="text"
-                        rows="40"
-                        cols="8"
+                        rows="8"
+                        cols="40"
                         onChange={e => setText(e.target.value)}
                         value={text}
                         required={true}
