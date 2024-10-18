@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { editPostThunk } from "../../store/forum";
+import { editPostThunk, onePostThunk } from "../../store/forum";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 function EditForumPost() {
-    const {postId} = useParams();
+    const { postId } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -12,12 +12,8 @@ function EditForumPost() {
     const forumPost = useSelector(state => state.forum[postId]);
 
     useEffect(() => {
-        if (forumPost) {
-            if (!sessionUser || sessionUser.id !== forumPost.userId) {
-                history.push('/');
-            }
-        }
-    }, [forumPost, sessionUser, history]);
+        dispatch(onePostThunk(postId));
+    }, [dispatch]);
 
     const [text, setText] = useState("");
 
@@ -33,13 +29,13 @@ function EditForumPost() {
         const formData = new FormData();
         formData.append('text', text);
 
-        const editedPost = await dispatch(editPostThunk(forumPost))
+        const editedPost = await dispatch(editPostThunk(formData, postId))
         setText('');
 
         setValErrs([]);
         setHasSubbed(false);
 
-        history.push(`/forum/posts/${forumPost?.id}`);
+        history.push(`/forum/posts/${postId}`);
     }
 
     if (!sessionUser) {

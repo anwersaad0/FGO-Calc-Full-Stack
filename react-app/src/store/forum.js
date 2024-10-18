@@ -74,8 +74,10 @@ export const createPostThunk = (post) => async (dispatch) => {
     }
 }
 
-export const editPostThunk = (post) => async (dispatch) => {
-    const res = await fetch(`/api/forum/edit/${post?.id}`, {
+export const editPostThunk = (post, postId) => async (dispatch) => {
+    console.log("the post", post);
+
+    const res = await fetch(`/api/forum/edit/${postId}`, {
         method: 'PUT',
         body: post
     });

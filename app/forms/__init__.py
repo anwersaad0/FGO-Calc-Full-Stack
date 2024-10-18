@@ -4,3 +4,4 @@ from .media_form import NewMedia
 from .edit_media_form import EditMedia
 from .shop_item_form import NewItem
 from .forum_post_form import NewPost
+from .edit_forum_post_form import EditPost

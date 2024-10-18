@@ -64,7 +64,7 @@ def add_item():
 @media_routes.route('/edit/<int:id>', methods=['PUT'])
 @login_required
 def edit_media(id):
-    if current_user.clearance is not 'Admin':
+    if current_user.clearance != 'Admin':
         return {"error": "Insufficient Clearance."}
     
     media = Media.query.get(id)
@@ -89,7 +89,7 @@ def edit_media(id):
 @media_routes.route('/delete/<int:id>', methods=['DELETE'])
 @login_required
 def delete_media(id):
-    if current_user.clearance is not 'Admin':
+    if current_user.clearance != 'Admin':
         return {"error": "Insufficient Clearance."}
     
     media = Media.query.get(id)
