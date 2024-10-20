@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import current_user, login_required
 from app.models import User, ForumPost, db
-from app.forms import NewPost
+from app.forms import NewPost, EditPost
 
 forum_post_routes = Blueprint('posts', __name__)
 
@@ -43,11 +43,10 @@ def edit_post(id):
     if not post:
         return {"error": "Post not found!"}
     
-    form = NewPost()
+    form = EditPost()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        post.title = form.data['title']
         post.text = form.data['text']
 
         db.session.commit()
