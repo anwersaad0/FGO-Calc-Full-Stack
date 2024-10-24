@@ -27,7 +27,7 @@ class ForumPost(db.Model):
             'title': self.title,
             'text': self.text,
             'likes': self.likes,
-            'user_id': self.user_id
+            'userId': self.user_id
         }
 
         return data

@@ -37,6 +37,16 @@ function ForumPost() {
 
                 </div>
 
+                <div className="forum-post-op-ui">
+
+                    <div>
+
+                        { post?.userId === sessionUser?.id ? (<button>Edit</button>) : (<div></div>) }
+
+                    </div>
+
+                </div>
+
                 <div className="forum-post-reply-container">
 
                     <div>
