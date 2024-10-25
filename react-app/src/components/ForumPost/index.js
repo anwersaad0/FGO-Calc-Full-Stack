@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { onePostThunk } from "../../store/forum";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 function ForumPost() {
     const dispatch = useDispatch();
@@ -41,7 +42,7 @@ function ForumPost() {
 
                     <div>
 
-                        { post?.userId === sessionUser?.id ? (<button>Edit</button>) : (<div></div>) }
+                        { post?.userId === sessionUser?.id ? (<NavLink exact to={`/forum/posts/edit/${post?.id}`}>Edit</NavLink>) : (<div></div>) }
 
                     </div>
 
