@@ -42,7 +42,13 @@ function ForumPost() {
 
                     <div>
 
-                        { post?.userId === sessionUser?.id ? (<NavLink exact to={`/forum/posts/edit/${post?.id}`}>Edit</NavLink>) : (<div></div>) }
+                        {post?.userId === sessionUser?.id ? (<NavLink exact to={`/forum/posts/edit/${post?.id}`}>Edit</NavLink>) : (<div></div>)}
+
+                    </div>
+
+                    <div>
+
+                        {post?.userId === sessionUser?.id ? (<NavLink exact to={`/forum/posts/delete/${post?.id}`}>Delete</NavLink>) : (<div></div>)}
 
                     </div>
 
