@@ -53,7 +53,7 @@ function EditForumPost() {
 
             <div>
 
-                <h1> Edit Forum Post </h1>
+                <h1> Edit Forum Post: {forumPost?.title} </h1>
 
             </div>
 
