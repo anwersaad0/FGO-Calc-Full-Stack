@@ -19,9 +19,9 @@ function DeleteForumPost() {
     const handleDelete = async (e) => {
         e.preventDefault();
 
-        history.push('/forum/posts');
+        await dispatch(deletePostThunk(postId));
 
-        await deletePostThunk(postId);
+        history.push('/forum/posts');
     }
 
     if (!sessionUser) {
