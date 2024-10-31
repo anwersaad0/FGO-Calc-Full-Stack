@@ -16,6 +16,7 @@ import ForumPage from "./components/ForumPage";
 import ForumPost from "./components/ForumPost";
 import EditForumPost from "./components/EditForumPost";
 import UploadForumPost from "./components/UploadForumPost";
+import DeleteForumPost from "./components/DeleteForumPost";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <Route exact path="/forum/posts/edit/:postId">
             <EditForumPost />
+          </Route>
+          <Route exact path="/forum/posts/delete/:postId">
+            <DeleteForumPost />
           </Route>
           <Route exact path="/forum/posts">
             <ForumPage />
