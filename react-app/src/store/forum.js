@@ -4,6 +4,8 @@ const CREATE_FORUM_POST = "/CREATE_FORUM_POST";
 const EDIT_FORUM_POST = "/EDIT_FORUM_POST";
 const DELETE_FORUM_POST = "/DELETE_FORUM_POST";
 
+const ADD_DEL_POST_LIKE = "/ADD_DEL_POST_LIKE";
+
 const getAllPosts = (posts) => {
     return {
         type: GET_ALL_FORUM_POSTS,
@@ -35,6 +37,13 @@ const editPost = (post) => {
 const deletePost = (post) => {
     return {
         type: DELETE_FORUM_POST,
+        post
+    }
+}
+
+const addDelPostLike = (post) => {
+    return {
+        type: ADD_DEL_POST_LIKE,
         post
     }
 }
@@ -99,6 +108,19 @@ export const deletePostThunk = (id) => async (dispatch) => {
         return {'message': "Successfully Deleted"}
     } else {
         return ("There was an issue trying to process the request")
+    }
+}
+
+export const addDelPostLikeThunk = (postId, userId, type) => async (dispatch) => {
+    const res = await fetch(`/api/forum/${postId}/likes/${userId}`, {
+        method: 'POST',
+        body: postId, userId, type
+    });
+
+    if (res.ok) {
+        const postLike = await res.json();
+        dispatch(addDelPostLike(postLike));
+        return postLike;
     }
 }
 
