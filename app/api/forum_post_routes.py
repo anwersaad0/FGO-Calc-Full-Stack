@@ -1,7 +1,9 @@
 from flask import Blueprint, request
 from flask_login import current_user, login_required
-from app.models import User, ForumPost, db
+from app.models import User, ForumPost, post_likes, db
 from app.forms import NewPost, EditPost
+
+from sqlalchemy import select
 
 forum_post_routes = Blueprint('posts', __name__)
 
@@ -14,6 +16,34 @@ def all_posts():
 def get_post(id):
     post = ForumPost.query.get(id)
     return post.to_dict()
+
+@forum_post_routes.route('/<int:id>/likes/<int:user_id>')
+@login_required
+def like_post(id, user_id):
+    post = ForumPost.query.get(id)
+    if not post:
+        return {'error': 'post not found'}
+    
+    user = User.query.get(user_id)
+    if not user:
+        return {'error': 'user not found'}
+    
+    query = select([post_likes]).where(
+        (post_likes.c.user_id == user_id) & (post_likes.c.post_id == id)
+    )
+
+    res = db.session.execute(query)
+
+    in_likes = res.fetchone() is not None
+
+    if in_likes:
+        user.likes_post.remove(post)
+        db.session.commit()
+        return post.to_dict()
+    else:
+        user.likes_post.add(post)
+        db.session.commit()
+        return post.to_dict()
 
 @forum_post_routes.route('/new', methods=["POST"])
 @login_required
