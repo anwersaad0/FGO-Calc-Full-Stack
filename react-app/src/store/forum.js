@@ -111,10 +111,10 @@ export const deletePostThunk = (id) => async (dispatch) => {
     }
 }
 
-export const addDelPostLikeThunk = (postId, userId, type) => async (dispatch) => {
+export const addDelPostLikeThunk = (userId, postId, reaction) => async (dispatch) => {
     const res = await fetch(`/api/forum/${postId}/likes/${userId}`, {
         method: 'POST',
-        body: postId, userId, type
+        body: userId, postId, reaction
     });
 
     if (res.ok) {
@@ -152,6 +152,10 @@ function forumPostReducer(state = initState, action) {
         case DELETE_FORUM_POST:
             newState = {...state};
             delete newState[action.id];
+            return newState;
+        case ADD_DEL_POST_LIKE:
+            newState = {...state};
+            newState[action.post.id] = action.post;
             return newState;
         default:
             return state;
