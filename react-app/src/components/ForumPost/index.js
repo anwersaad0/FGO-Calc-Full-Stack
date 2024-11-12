@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { onePostThunk } from "../../store/forum";
+import { onePostThunk, addDelPostLikeThunk } from "../../store/forum";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 function ForumPost() {
@@ -39,6 +39,16 @@ function ForumPost() {
                 </div>
 
                 <div className="forum-post-op-ui">
+
+                    <div>
+
+                        <div>
+
+                            <button onClick={addDelPostLikeThunk(sessionUser?.id, post?.id, "like")}> Like </button>
+
+                        </div>
+
+                    </div>
 
                     <div>
 

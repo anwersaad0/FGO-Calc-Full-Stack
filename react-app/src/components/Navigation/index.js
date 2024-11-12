@@ -33,7 +33,7 @@ function Navigation({ isLoaded }){
 				</li>
 
 				<li>
-					<NavLink className="nav-bar-link" exact to="/forum">Forum</NavLink>
+					<NavLink className="nav-bar-link" exact to="/forum/posts">Forum</NavLink>
 				</li>
 
 				{isLoaded && (

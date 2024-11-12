@@ -21,7 +21,21 @@ function ForumPage() {
 
             <div>
 
+                <div>
+
+                    <h1> Recent Forum Posts </h1>
+
+                </div>
+
+                <div>
+
+                    
+
+                </div>
+
                 <div className="forum-posts-container">
+
+                    {posts?.length === 0 ? (<div>No posts were found.</div>) : ("")}
 
                     {posts?.toReversed().filter(post => {
                         if (query === '') {
