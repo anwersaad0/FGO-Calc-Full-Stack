@@ -23,13 +23,17 @@ function ForumPage() {
 
                 <div>
 
-                    <h1> Recent Forum Posts </h1>
+                    <h1> Forum Posts </h1>
 
                 </div>
 
                 <div>
 
-                    
+                    <div>
+
+                        <NavLink exact to={`/forum/posts/new`}> Create New Post </NavLink>
+
+                    </div>
 
                 </div>
 
@@ -43,7 +47,7 @@ function ForumPage() {
                         } else if (post.title.toLowerCase().includes(query.toLocaleLowerCase())) {
                             return post;
                         }
-                    }).map(({id, title}) => (
+                    }).map(({ id, title }) => (
                         <NavLink className='post-mini-details' exact to={`/forum/posts/${id}`}>
 
                             <div>
