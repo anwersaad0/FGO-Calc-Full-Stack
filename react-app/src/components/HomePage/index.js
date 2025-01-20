@@ -31,7 +31,7 @@ function HomePage() {
             },
             slideDelay
         )
-    }, [slide])
+    }, [slide, dispatch])
 
     return (
         <main className="site-homepage">

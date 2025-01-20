@@ -17,7 +17,7 @@ def get_post(id):
     post = ForumPost.query.get(id)
     return post.to_dict()
 
-@forum_post_routes.route('/<int:id>/likes/<int:user_id>')
+@forum_post_routes.route('/<int:id>/likes/<int:user_id>', methods=['POST'])
 @login_required
 def like_post(id, user_id):
     post = ForumPost.query.get(id)
