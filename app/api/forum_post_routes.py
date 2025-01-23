@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import current_user, login_required
 from app.models import User, ForumPost, post_likes, db
-from app.forms import NewPost, EditPost
+from app.forms import NewPost, EditPost, NewPostLike
 
 from sqlalchemy import select
 
@@ -41,6 +41,8 @@ def like_post(id, user_id):
         db.session.commit()
         return post.to_dict()
     else:
+        #form = NewPostLike()
+
         user.likes_post.add(post)
         db.session.commit()
         return post.to_dict()
