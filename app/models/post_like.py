@@ -7,7 +7,7 @@ post_likes = db.Table(
     db.Model.metadata,
     db.Column('user_id', db.ForeignKey(add_prefix_for_prod('users.id')), primary_key=True),
     db.Column('post_id', db.ForeignKey(add_prefix_for_prod('forum_posts.id')), primary_key=True),
-    db.Column('reaction', db.String)
+    #db.Column('reaction', db.String)
 )
 
 if environment == "production":

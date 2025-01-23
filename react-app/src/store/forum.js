@@ -111,10 +111,10 @@ export const deletePostThunk = (id) => async (dispatch) => {
     }
 }
 
-export const addDelPostLikeThunk = (userId, postId, reaction) => async (dispatch) => {
+export const addDelPostLikeThunk = (userId, postId/*, reaction*/) => async (dispatch) => {
     const res = await fetch(`/api/forum/${postId}/likes/${userId}`, {
         method: 'POST',
-        body: userId, postId, reaction
+        body: userId, postId//, reaction
     });
 
     if (res.ok) {
